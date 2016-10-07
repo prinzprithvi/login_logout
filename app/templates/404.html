@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% import "auth/wtf_bootstrap.html" as form_macros %}
+
+{% block title %}Error{% endblock %}
+{% block action_bar %}{{ super() }}
+    
+{% endblock %}
+{% block maincontents %}
+     <div class="main padder">
+      <div class="row">
+          <div class="col-lg-4 col-lg-offset-4">
+            <div class="text-center m-b-large">
+              <h1 class="h text-white">404</h1>
+            </div>
+            <div class="list-group m-b-small">
+              <a href="index.html" class="list-group-item">
+                <i class="icon-chevron-right"></i>
+                <i class="icon-home"></i> Goto homepage
+              </a>
+              <a href="form.html" class="list-group-item">
+                <i class="icon-chevron-right"></i>
+                <i class="icon-question"></i> Send us a tip
+              </a>
+              <a href="#" class="list-group-item">
+                <i class="icon-chevron-right"></i>
+                <span class="badge">021-215-584</span>
+                <i class="icon-phone"></i> Call us
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}

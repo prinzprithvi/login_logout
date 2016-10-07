@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block css_sheets %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+{% block maincontents %}
+
+
+
+
+{% endblock %}
+{% block modalcontent %}
+        <!-- .modal -->
+
+  <!-- / .modal -->
+        {% endblock %}
+    {% block js_scripts %}
+    <!-- Sparkline Chart -->
+    <script src="{{ url_for('static', filename='js/charts/sparkline/jquery.sparkline.min.js' ) }}"></script>
+    <!-- Easy Pie Chart -->
+    <script src="{{ url_for('static', filename='js/charts/easypiechart/jquery.easy-pie-chart.js' ) }}"></script>
+    {% endblock %}

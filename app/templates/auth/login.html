@@ -1,0 +1,60 @@
+{% extends "master.html" %}
+
+{% import "auth/wtf_bootstrap.html" as forms %}
+
+{% block title %}Login or Register{% endblock %}
+
+{% block maincontents %}
+    <div class="main padder">
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 m-t-large">
+            <section class="panel">
+            <header class="panel-heading text-center">
+              Sign in
+            </header>
+            <form action="/accounts/login" method="post"  class="panel-body">
+                <div class="block">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+              <div class="block">
+                <label class="control-label">Email</label>
+                <input type="email" name="email" placeholder="test@example.com" class="form-control">
+              </div>
+              <div class="block">
+                <label class="control-label">Password</label>
+                <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control">
+              </div>
+                <input type="hidden" name="next" value="/">
+                <input type="hidden" name="role" value="USER">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Keep me logged in
+                </label>
+              </div>
+              <a href="/accounts/password/reset" class="pull-right m-t-mini"><small>Forgot password?</small></a>
+              <button type="submit" class="btn btn-info">Sign in</button>
+              <div class="line line-dashed"></div>
+              <p class="text-muted text-center"><small>Do not have an account?</small></p>
+              <a href="/accounts/signup" class="btn btn-white btn-block">Create an account</a>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(window).unload(function(){
+            $.localStorage.clear();
+        });
+    </script>
+{% endblock %}

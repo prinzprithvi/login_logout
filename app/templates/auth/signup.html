@@ -1,0 +1,69 @@
+{% extends "master.html" %}
+
+{% import "auth/wtf_bootstrap.html" as forms %}
+
+{% block title %}Login or Register{% endblock %}
+
+{% block maincontents %}
+    <div class="main padder">
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 m-t-large">
+          <section class="panel">
+            <header class="panel-heading text-center">
+              Sign up <span style="color:red;"> NJK </span>
+            </header>
+            <form action="/accounts/signup" method="POST" class="panel-body" data-validate="parsley">
+                <div class="block">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="block">
+                    <label class="control-label">Choose a Plan</label>
+                    <div id="id_current_plan" class="input-group dropdown combobox m-b">
+                        <input class="input-sm form-control" name="plan" type="text">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-white dropdown-toggle" data-toggle="dropdown"><i class="caret"></i></button>
+                            <ul class="dropdown-menu pull-right">
+                                <li data-value="Personal" data-selected="true"><a href="#">Single User</a></li>
+				<li class="enabled"  data-value="Business"><a href="#">Multi User</a></li>
+                                <!--<li class="disabled"  data-value="Professional"><a href="#">Professional</a></li>                            -->
+		           </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                <label class="control-label">Display name</label>
+                <input type="text" name="name" placeholder="eg. Your name or company" class="form-control" data-required="true" >
+              </div>
+              <div class="block">
+                <label class="control-label">Your email address</label>
+                <input type="email"  name="email" placeholder="test@example.com" class="form-control" data-required="true" data-type="email">
+              </div>
+                <input type="hidden" name="user_type" value="ACCOUNT_OWNER">
+                <input type="hidden" name="next" value="/accounts/login">
+              <div class="block">
+                <label class="control-label">Type a password</label>
+                <input type="password" name="password" id="inputPassword" placeholder="Password" class="form-control" data-required="true">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input name="tos" type="checkbox"  data-required="true"> Agree the <a href="#">terms and policy</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-info">Sign up</button>
+              <div class="line line-dashed"></div>
+              <p class="text-muted text-center"><small>Already have an account?</small></p>
+              <a href="/accounts/login" class="btn btn-white btn-block">Sign in</a>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+{% endblock %}

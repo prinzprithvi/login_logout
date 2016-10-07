@@ -1,0 +1,93 @@
+#popover-chat {
+  position: fixed;
+  bottom: -100px;
+  right: 60px;
+  width: 450px;
+  background: #000;
+  z-index: 4000;
+  visibility: hidden;
+  
+  opacity: 100;
+  filter: alpha(opacity=100);
+  
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px rgba(0,0,0,.4);
+  
+  -webkit-transition: opacity 0.75s ease, bottom 0.75s ease;
+  -moz-transition: opacity 0.75s ease, bottom 0.75s ease;
+  -o-transition: opacity 0.75s ease, bottom 0.75s ease;
+  transition: opacity 0.75s ease, bottom 0.75s ease;
+  
+}
+#popover-chat .close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  padding: 3px 6px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+}
+  
+#popover-chat.animate {
+  visibility: visible;
+  bottom: 0px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.desk-sidetab {
+    top: 245px;
+    letter-spacing: 1px;
+    margin: 0;
+    background-color: rgb(67, 141, 198);
+    color: rgb(255, 255, 255);
+    font: normal normal normal 14px/normal "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+    height: 28px;
+    cursor: pointer;
+    z-index: 1007;
+    text-decoration: none;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    left: 0px;
+    padding-top: 15px;
+    padding-right: 13px;
+    padding-bottom: 0px;
+    padding-left: 13px;
+    position: fixed;
+    margin-left: -37px;
+}
+.desk-sidetab:hover {
+    text-decoration: none;
+    background-color: rgb(67, 141, 198);
+    color: white;
+    margin: 0px 0px 0px -34px;
+}
+
+
+.desk-sidetab2 {
+    bottom: -3px;
+    letter-spacing: 1px;
+    margin: 0;
+    background-color: rgb(67, 141, 198);
+    color: rgb(255, 255, 255);
+    font: normal normal normal 14px/normal "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+    height: 28px;
+    cursor: pointer;
+    z-index: 1007;
+    text-decoration: none;
+    right: 10px;
+    padding-top: 10px;
+    padding-right: 8px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    position: fixed;
+}
+.desk-sidetab2:hover {
+    text-decoration: none;
+    background-color: rgb(67, 141, 198);
+    color: white;
+    bottom: 0px;
+}

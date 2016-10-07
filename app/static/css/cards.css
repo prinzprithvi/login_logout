@@ -1,0 +1,54 @@
+.cards li {
+-webkit-transition:all .2s;
+-moz-transition:all .2s;
+-ms-transition:all .2s;
+-o-transition:all .2s;
+transition:all .2s;
+background-image:url(images/card_logos.png);
+background-position:0 0;
+float:left;
+height:32px;
+margin-right:8px;
+text-indent:-9999px;
+width:51px;
+}
+
+.cards li:last-child {
+margin-right:0;
+}
+
+.cards .visa_electron {
+background-position:204px 0;
+}
+
+.cards .mastercard {
+background-position:153px 0;
+}
+
+.cards .maestro {
+background-position:102px 0;
+}
+
+.cards .discover {
+background-position:51px 0;
+}
+
+.cards .visa.off {
+background-position:0 32px;
+}
+
+.cards .visa_electron.off {
+background-position:204px 32px;
+}
+
+.cards .mastercard.off {
+background-position:153px 32px;
+}
+
+.cards .maestro.off {
+background-position:102px 32px;
+}
+
+.cards .discover.off {
+background-position:51px 32px;
+}
