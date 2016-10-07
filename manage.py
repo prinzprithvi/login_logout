@@ -19,8 +19,8 @@ ecom_app.register_blueprint(auth_views)
 manager = Manager(ecom_app)
 # Turn on debugger by default and reloader
 manager.add_command("runserver", Server(
-    use_debugger=True,
-    use_reloader=True,
+    use_debugger=False,
+    use_reloader=False,
     host='0.0.0.0',port=8080)
 )
 

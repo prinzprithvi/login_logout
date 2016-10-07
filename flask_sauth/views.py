@@ -114,7 +114,7 @@ def signup():
 
         if(form.validate()):
             user = form.save()
-            signal_user_registered.send("flask-satuh", user=user,plan_name = form.plan.data)
+            signal_user_registered.send("flask-satuh", user=user)
             user = User.objects.get(id=user.get_id())
             user.unique_id = random_with_N_digits(6)
             user.roles= list()

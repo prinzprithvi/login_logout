@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{%endblock%}</title>
+    <meta name="description" content="Ecommerce" />
+    <meta name="keywords" content="" />
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/select2/select2.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/plugin.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/smoke.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/chosen/chosen.css') }}">
+    {% block styles %}
+  {% endblock %}
+  <!--[if lt IE 9]>
+    <script src="{{ url_for('static', filename='js/ie/respond.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ie/html5.js') }}"></script>
+
+  <![endif]-->
+  <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+
+</head>
+<body>
+  <!-- header -->
+	<header id="header" class="navbar"></header><!--
+    {% if c_user %}
+    <ul class="nav navbar-nav navbar-avatar pull-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="hidden-xs-only">{{c_user.name}}</span>
+          <span class="thumb-small avatar inline"><img src="{% if c_user.profile_pic  %}{{ c_user.profile_pic }}{% else %}/static/images/avatar.png{% endif %}" alt="{{c_user.name}}" style="height: 36px;" class="img-circle"></span>
+          <b class="caret hidden-xs-only"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/accounts/password/change">Change Password</a></li>
+          <li><a href="/notifications">Notifications</a></li>
+          <li class="divider"></li>
+
+          <li><a href="docs.html">Help</a></li>
+          <li><a href="/accounts/logout">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+    {% endif %}
+    <a class="navbar-brand" href="/">Ecom</a>
+     <button type="button" class="btn btn-link pull-left nav-toggle visible-xs" data-toggle="class:slide-nav slide-nav-left" data-target="body">
+      <i class="icon-reorder icon-xlarge text-default"></i>
+    </button>
+    <ul class="nav navbar-nav hidden-xs">
+      <li>
+          {% block action_bar %}
+          {% endblock %}
+      </li>
+    </ul>
+
+
+	</header>-->
+  <!-- / header -->
+  <section id="content">
+     {% block maincontents %}
+     {% endblock %}
+  </section>
+<!-- footer -->
+  <footer id="footer">
+    <div class="text-center padder clearfix">
+      <p>
+        <large>&copy; Ecommerce</large><br><br>
+          <!--<a href="#" class="btn btn-xs btn-circle btn-twitter"><i class="icon-twitter"></i></a>
+          <a href="#" class="btn btn-xs btn-circle btn-facebook"><i class="icon-facebook"></i></a>
+          <a href="#" class="btn btn-xs btn-circle btn-linkedin"><i class="icon-linkedin"></i></a>-->
+      </p>
+    </div>
+  </footer>
+  {% block modalcontents %}
+  {% endblock %}
+
+  <!-- / footer -->
+
+  <script src="{{ url_for('static', filename='js/jquery.html5storage.min.js') }}"></script>
+  <!-- Bootstrap -->
+  <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+  <!-- app -->
+  <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/app.plugin.js')}}"></script>
+  <!-- fuelux -->
+  <script src="{{ url_for('static', filename='js/fuelux/fuelux.js')}}"></script>
+  <!-- datepicker -->
+  <script src="{{ url_for('static', filename='js/datepicker/bootstrap-datepicker.js' )}}"></script>
+  <!-- slider -->
+  <script src="{{ url_for('static', filename='js/slider/bootstrap-slider.js' )}}"></script>
+  <!-- file input -->
+  <script src="{{ url_for('static', filename='js/file-input/bootstrap.file-input.js' )}}"></script>
+  <!-- combodate -->
+  <script src="{{ url_for('static', filename='js/combodate/moment.min.js' )}}"></script>
+  <script src="{{ url_for('static', filename='js/combodate/combodate.js' )}}"></script>
+  <!-- select2 -->
+  <script src="{{ url_for('static', filename='js/select2/select2.min.js' )}}"></script>
+  <!-- parsley -->
+  <script src="{{ url_for('static', filename='js/parsley/parsley.min.js')}}"></script>
+
+  <script src="{{ url_for('static', filename='js/smoke.js' )}}"></script>
+  <script src="{{ url_for('static', filename='lib/chosen/chosen.jquery.min.js') }}"></script>
+
+  <script type="text/javascript">
+      $("select.chosen").chosen({
+          fixed_width : false,
+          width: '30em',
+          disable_search_threshold: 10
+      });
+
+  </script>
+  {% block scripts %}
+  {% endblock %}
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-34479865-2', '');
+      ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
+

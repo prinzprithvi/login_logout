@@ -6,10 +6,12 @@ from wtforms import validators as v
 from flask_sauth.models import User, authenticate
 
 class RegistrationForm( Form):
-    plan = TextField( validators=[v.DataRequired(), v.Length(max=32)])
+    #plan = TextField( validators=[v.DataRequired(), v.Length(max=32)])
     name = TextField( validators=[v.DataRequired(), v.Length(max=256)])
+    username = TextField( validators=[v.DataRequired(), v.Length(max=256)])
     email = TextField( validators=[v.DataRequired(), v.Email(), v.Length(max=256), v.Email()])
     password = PasswordField( validators=[v.DataRequired(), v.Length(max=256)])
+    confirmpassword = PasswordField( validators=[v.DataRequired(), v.Length(max=256),v.EqualTo('password')])
     next = HiddenField()
     owner_id = HiddenField()
     user_type = HiddenField()
@@ -17,10 +19,16 @@ class RegistrationForm( Form):
     def validate_email( form, field):
         email = field.data.lower().strip()
         if(User.objects(email=email).count()):
-            raise ValidationError( "Hey! This email is already registered with us. Did you forget your password?")
+            raise ValidationError( "This email is already registered with us.")
+
+    def validate_username(form, field):
+        username = field.data.strip()
+        print username
+        if (User.objects(username=username).count()):
+            raise ValidationError("Hey! This username is already registered with us")
 
     def save( self):
-        user = User.create_user( self.name.data, self.email.data, self.password.data, email_verified=True)
+        user = User.create_user( self.name.data, self.email.data, self.password.data,self.username.data, email_verified=True)
         user.save()
         return user
 

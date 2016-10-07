@@ -93,7 +93,7 @@ class BaseUser(Document, UserMixin):
         return self.password_reset_token
 
     @classmethod
-    def create_user(cls, name, email, password, email_verified=True):
+    def create_user(cls, name, email, password,username, email_verified=True):
         """Create (and save) a new user with the given password and
         email address.
         """
@@ -108,7 +108,7 @@ class BaseUser(Document, UserMixin):
         else:
             email = '@'.join([email_name.lower(), domain_part.lower()])
             
-        user = User(name=name, email=email, date_joined=now)
+        user = User(name=name, email=email, date_joined=now,username=username)
 
         if( not password):
             password = generate_password()
